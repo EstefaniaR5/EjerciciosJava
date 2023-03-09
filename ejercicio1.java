@@ -1,5 +1,8 @@
 package Practica;
 
+import java.time.Instant;
+import java.util.Date;
+
 public class Practica {
 	// ejemplo visto en la sesion
 	static void primerMetodo(int x) {
@@ -26,11 +29,19 @@ public class Practica {
 	
 	// 3 Escribir un metodo que muestre por consola la hora del sistema
 	// Utilizar e investigar la libreria de Java
-	
+	static void horaSistema() {
+		Date date = Date.from(Instant.now());
+		System.out.println("La fecha es: " + date);
+	}
 	
 	// 4 Escribir un metodo que convierta n cantidad de segundos a (hora, minutos, segundos) segun sea el caso
 		// ej 3600 = "1 hora = 60 min = 3600 seg"
-	
+	static void segundos(int seg) {
+		int hora = seg /3600;
+		int minutos = seg/60;
+		int segundos = seg;
+		System.out.println(seg + " = "+hora+" horas = "+minutos+" minutos = "+ segundos + " segundos");
+	}
 	// 5 Escribir un metodo para encontrar el volumen de una esfera dado el radio
 	static void esfera(double radio) {
 		double volumen = (4/3) * Math.PI * radio * radio * radio;
@@ -48,7 +59,8 @@ public class Practica {
 		double areaSup = 6 * a * a;
 		System.out.println("El area superficial del cubo es: "+areaSup);
 	}
-		// 8 Escribir un metodo para descubrir si un año ingresado es bisiesto o no
+	
+	// 8 Escribir un metodo para descubrir si un año ingresado es bisiesto o no
 
 	
 	public static void main (String [] args) {
@@ -56,10 +68,11 @@ public class Practica {
 		
 		triangulo (2,3,4); // ejercicio 1
 		circulo(4); //ejercicio 2
+		horaSistema(); //ejercicio 3
+		segundos(7200); //ejercicio 4
 		esfera(5); //ejercicio 5
 		cono(3,5); //ejercicio 6
 		cubo(2); //ejercicio 7
 		
 	}
 }
-
