@@ -2,6 +2,7 @@ package Practica;
 
 import java.time.Instant;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Practica {
 	// ejemplo visto en la sesion
@@ -61,7 +62,73 @@ public class Practica {
 	}
 	
 	// 8 Escribir un metodo para descubrir si un año ingresado es bisiesto o no
+	// Condiciones para que un año sea bisiesto:
+    //Es divisible entre 4 y no es divisible entre 100.
+	// ó
+    //Es divisible entre 100 y 400.
+	static void anioBisiesto(int anio) {
+		 //Si es divisible entre 4 y no es divisible entre 100 o es divisible entre 100 y 400.
+		if((anio%4==0 && anio%100!=0) || (anio%100==0 && anio%400==0)){
+			System.out.println("El anio "+anio+ " es bisiesto");
+		} else {
+			System.out.println("El anio "+anio+ " NO es bisiesto");
+		}
+	}
+	
+	// 9. Escribir mostrar en pantalla los primeros 100 numeros primos
+	static void numPrimos(int number) {
+		
+		while(number>2 && number%2 == 0) {
+			System.out.println("No es numero primo");
+		}
+		System.out.println("Es numero primo");
+	}
+	
+	// 10. Escribir un programa para sumar 2 numeros sin usar operadores aritmeticos
+	static void suma(int number1, int number2) {
+		double suma = Math.addExact(number1, number2);
+		System.out.println("La suma es: " + suma);
+	}
+	
+	// 11. Escribir un método para verificar si un numero positivo de 2 digitos es palindromo
+	static void palindromo(int num) {
+		char primerDigito = Integer.toString(num).charAt(0);
+		char segundoDigito = Integer.toString(num).charAt(1);
 
+		if(primerDigito == segundoDigito) {
+			System.out.println("\n" + num + " si es palindromo \n");
+		} else {
+			System.out.println("\n" + num + " no es palindromo");
+		}
+	}
+	// 12. Sin usar loops, escribir un metodo para sumar todos los digitos de un numero donde 99 >= n >= 10
+	static void sumaDigitos(int num) {
+		int digito1 = num / 10;
+	    int digito2 = num % 10;
+	    System.out.println("Suma de digitos"+ digito1 + digito2);
+	}
+	// 13. Escribir un método para remover espacios en blanco de un String. ej -> "Hola Mundo" -> "HolaMundo"
+	static void espacios(String cad) {
+		String cadSinEspacios = cad.replaceAll(" ", "");
+		System.out.println("Cadena sin espacios: " + "'"+ cadSinEspacios +"'");
+	}
+	// 14. Escribir un método para invertir un String. ej -> "Hola" -> "aloH" --- Sin usar loops
+	static void invertir(String cad) {
+		StringBuilder cadenaInvertida = new StringBuilder(cad);
+		cadenaInvertida.append(cad);
+	    cadenaInvertida.reverse();
+	    System.out.println("Cadena invertida: " + cadenaInvertida);
+	    
+	}
+	// 15. Escribir un metodo para encontrar el factorial de un numero sin loops
+	public static int factorial(int num) {
+		 if (num == 0) {
+		        return 1;
+		    } else {
+		        return num * factorial(num - 1);
+		    }
+	}
+	
 	
 	public static void main (String [] args) {
 		primerMetodo(7); //invoco a mi metodo para que pueda ejecutarse porque solo se ejecuta lo que está dentro de psvm
@@ -73,6 +140,13 @@ public class Practica {
 		esfera(5); //ejercicio 5
 		cono(3,5); //ejercicio 6
 		cubo(2); //ejercicio 7
-		
+		anioBisiesto(2004); //ejercicio 8
+		numPrimos(7); // ejercicio 9
+		suma(4,8); //ejercicio 10
+		palindromo(66); // ejercicio 11
+		sumaDigitos(25); // ejercicio 12
+		espacios("Hola buenas tardes"); // ejercicio 13
+		invertir("Anita lava la tina"); // ejercicio 14
+		factorial(6); // ejercicio 15
 	}
 }
